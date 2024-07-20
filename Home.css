@@ -1,0 +1,15 @@
+.home {
+    color: royalblue;
+    border-top: 2px;
+    border-bottom: 2px;
+    border-right: 2px;
+    border-left: 2px;
+    border-style: solid;
+    border-color: black;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-right: 4px;
+    padding-left: 4px;
+    background-color: hsl(0, 0%, 100%);
+    background-size: 50% auto;
+}
