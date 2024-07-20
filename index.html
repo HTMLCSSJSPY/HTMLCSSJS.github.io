@@ -18,6 +18,34 @@
         <hr>
         <script src="yourname.js">
         </script>
+        <script>
+document.addEventListener('DOMContentLoaded', () => {
+    const contactForm = document.getElementById('contact-form');
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const formData = new FormData(contactForm);
+        
+        fetch(contactForm.action, {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                alert(data.message);
+                contactForm.reset();
+            } else {
+                alert(data.message);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('There was an error sending your message. Please try again later.');
+        });
+    });
+});
+</script>
     </head>
     <body class="body">
         <header class="header">
@@ -43,10 +71,11 @@
              <aside>
                  This website arrives early 2025; for more information contact the developer at hjthoq@schools.vic.edu.au<p>
              </aside>
-        <form>
+        <form id="contact-form" action="send_email.php" method="POST">
             <div>Subscirbe for monthly newsletters and updates info!</div>
-            <a class="emailtroubleshooting" href="Troubleshooting.txt">Email troubleshooting</a>
-            <input type="email" name="user-email" placeholder="you@yourdomain.com"><p>
+            <a class="emailtroubleshooting" href="Troubleshooting.txt">Email troubleshooting</a><p>
+            <input type="email" name="user-email" placeholder="you@yourdomain.com">
+            <button type="submit" class="btn">Send Message</button><p>
             <button type="button" onclick="myFunction()">Click here for a more personalized experience!</button>
             <p id="demo"></p>
         </form>
